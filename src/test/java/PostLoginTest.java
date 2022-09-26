@@ -11,11 +11,11 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-public class PostLoginTest{
+public class PostLoginTest {
     public static WebDriver driver;
 
     @Test
-    void test() throws IOException, InterruptedException {
+    public static void logIn() throws IOException, InterruptedException {
 
         //Creating object and path for reading property file
         Properties properties = new Properties();
@@ -45,7 +45,7 @@ public class PostLoginTest{
         System.out.println(Utils.formattedDate());
 
         /* Disables chrome functions */
-        Utils.disableChromefunctions();
+        Utils.disableChromeFunctions();
 
 
         /* Opens the website */
@@ -54,9 +54,9 @@ public class PostLoginTest{
         Thread.sleep(2000);
         System.out.println("Website loaded successfully");
 
-        //
+
         driver.findElement(By.xpath("//div[@class= 'header_logIn___ctid block']")).click();
-        driver.findElement(By.id("email")).sendKeys(properties.getProperty("email"));
+        driver.findElement(By.id("email")).sendKeys(properties.getProperty(Constants.EMAIL));
         driver.findElement(By.name("pwd")).sendKeys(properties.getProperty("password"));
         driver.findElement(By.xpath("//div[text()= 'Login']")).click();
 
@@ -69,6 +69,21 @@ public class PostLoginTest{
         driver.findElement(By.xpath("//div[contains(text(),'Authenticate')]")).click();
         System.out.println("Log-in Successful");
 
+
         driver.findElement(By.xpath("//div[@class= 'close-icon ng-star-inserted']")).click();
+
+        /* CLicking Invest Button */
+        driver.findElement(By.xpath("//body/app-root[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/app-fi-dashboard[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/section[1]/button[1]")).click();
+
+        /* Clicking Sip */
+        driver.findElement(By.xpath("//body/app-root[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/app-mf-dashboard[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]")).click();
+
+        /* Applying Filter */
+        driver.findElement(By.id("name-1")).click();
+
+        /* clicking Search */
+        driver.findElement(By.name("queryString")).sendKeys(properties.getProperty(Constants.SEARCH));
+
+
     }
 }

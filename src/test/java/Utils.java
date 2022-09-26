@@ -19,7 +19,7 @@ public class Utils {
         return currentDate.toString().replace(" ", "-").replace(":", "-");
     }
 
-    public static void disableChromefunctions() {
+    public static void disableChromeFunctions() {
 
         //Disabling chrome options
         ChromeOptions options = new ChromeOptions();
@@ -32,8 +32,8 @@ public class Utils {
     public static String screenshot() throws IOException {
 
         //Taking screenshot
-        File screenshotfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenshotfile, new File(".\\screenshot\sscreenshot.png"));
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(screenshotFile, new File(".\\screenshot\sscreenshot.png"));
         System.out.println("Screenshot taken");
         return null;
 
