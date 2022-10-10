@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
@@ -14,12 +15,11 @@ import java.util.Properties;
 public class PostLoginTest {
     public static WebDriver driver;
 
-    @Test
     public static void logIn() throws IOException, InterruptedException {
 
         //Creating object and path for reading property file
         Properties properties = new Properties();
-        FileInputStream input = new FileInputStream("D:\\Intellij idea\\src\\main\\resources\\General.properties");
+        FileInputStream input = new FileInputStream("D:\\Webrevamp\\src\\main\\resources\\General.properties");
         properties.load(input);
 
 
@@ -72,6 +72,15 @@ public class PostLoginTest {
 
         driver.findElement(By.xpath("//div[@class= 'close-icon ng-star-inserted']")).click();
 
+
+    }
+
+    public static void Sip() throws IOException {
+
+        Properties properties = new Properties();
+        FileInputStream input = new FileInputStream("D:\\Webrevamp\\src\\main\\resources\\General.properties");
+        properties.load(input);
+
         /* CLicking Invest Button */
         driver.findElement(By.xpath("//body/app-root[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/app-fi-dashboard[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/section[1]/button[1]")).click();
 
@@ -83,7 +92,5 @@ public class PostLoginTest {
 
         /* clicking Search */
         driver.findElement(By.name("queryString")).sendKeys(properties.getProperty(Constants.SEARCH));
-
-
     }
 }
