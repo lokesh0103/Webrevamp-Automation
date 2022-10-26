@@ -11,7 +11,7 @@ public class MainTest {
     }
 
     @Test
-    public static void sip() throws IOException {
+    public static void sip() throws IOException, InterruptedException {
 
         PostLoginTest.Sip();
     }

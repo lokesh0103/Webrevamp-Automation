@@ -27,6 +27,7 @@ public class PostLoginTest {
         if (properties.getProperty("browser").equalsIgnoreCase(Constants.CHROME)) {
 
             WebDriverManager.chromedriver().setup();
+
             driver = new ChromeDriver();
 
         } else if (properties.getProperty("browser").equalsIgnoreCase(Constants.FIREFOX)) {
@@ -75,11 +76,12 @@ public class PostLoginTest {
 
     }
 
-    public static void Sip() throws IOException {
+    public static void Sip() throws IOException, InterruptedException {
 
         Properties properties = new Properties();
         FileInputStream input = new FileInputStream("D:\\Webrevamp\\src\\main\\resources\\General.properties");
         properties.load(input);
+
 
         /* CLicking Invest Button */
         driver.findElement(By.xpath("//body/app-root[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/app-fi-dashboard[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/section[1]/button[1]")).click();
@@ -92,5 +94,36 @@ public class PostLoginTest {
 
         /* clicking Search */
         driver.findElement(By.name("queryString")).sendKeys(properties.getProperty(Constants.SEARCH));
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("//body/app-root[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/app-scheme-listing[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[11]/div[1]/img[1]")).click();
+        driver.findElement(By.xpath("//button[contains(text(),'Proceed')]")).click();
+
+        driver.findElement(By.xpath("//button[contains(text(),'Proceed to basket')]")).click();
+
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("//button[contains(text(),'Okay')]")).click();
+        driver.findElement(By.xpath("//body/app-root[1]/app-investment-basket[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/app-number-operator[1]/div[1]/img[2]")).click();
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
