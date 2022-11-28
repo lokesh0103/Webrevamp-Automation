@@ -87,7 +87,9 @@ public class PostLoginTest {
         driver.findElement(By.xpath("//body/app-root[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/app-fi-dashboard[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/section[1]/button[1]")).click();
 
         /* Clicking Sip */
-        driver.findElement(By.xpath("//body/app-root[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/app-mf-dashboard[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        driver. findElement(By.xpath("//body/app-root[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/app-mf-dashboard[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]")).click();
 
         /* Applying Filter */
         driver.findElement(By.id("name-1")).click();
@@ -100,7 +102,6 @@ public class PostLoginTest {
         driver.findElement(By.xpath("//button[contains(text(),'Proceed')]")).click();
 
         driver.findElement(By.xpath("//button[contains(text(),'Proceed to basket')]")).click();
-
         Thread.sleep(2000);
 
         driver.findElement(By.xpath("//button[contains(text(),'Okay')]")).click();
