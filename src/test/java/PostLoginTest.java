@@ -19,7 +19,7 @@ public class PostLoginTest {
 
         //Creating object and path for reading property file
         Properties properties = new Properties();
-        FileInputStream input = new FileInputStream("D:\\Webrevamp\\src\\main\\resources\\General.properties");
+        FileInputStream input = new FileInputStream("D:\\Webrevamp-Automation\\src\\main\\resources\\General.properties");
         properties.load(input);
 
 
@@ -79,7 +79,7 @@ public class PostLoginTest {
     public static void Sip() throws IOException, InterruptedException {
 
         Properties properties = new Properties();
-        FileInputStream input = new FileInputStream("D:\\Webrevamp\\src\\main\\resources\\General.properties");
+        FileInputStream input = new FileInputStream("D:\\Webrevamp-Automation\\src\\main\\resources\\General.properties");
         properties.load(input);
 
 
